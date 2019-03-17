@@ -3,7 +3,7 @@ import firebase from 'firebase'
 
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBgbMdS3Ux-xVnBCeU36cH9oBx1Jd3-7Ps",
+    apiKey: "enter_api_key",
     authDomain: "tictactoe-e38cb.firebaseapp.com",
     databaseURL: "https://tictactoe-e38cb.firebaseio.com",
     projectId: "tictactoe-e38cb",
