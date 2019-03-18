@@ -6,7 +6,7 @@ class GameStore {
     constructor() {
         extendObservable(this, {
             combinations: ['012', '345', '678', '036', '147', '258', '048', '246'],
-            list: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            playerMoves: [0, 0, 0, 0, 0, 0, 0, 0, 0],
             matrix: {
                 0: [0, 3, 6],
                 1: [0, 4],
@@ -55,7 +55,7 @@ class GameStore {
     // updates the list of moves that have been made
     // and by which player (either 1 or 2)
     updateGameMatrix = (index) => {
-        this.list[index] = this.getPlayer();
+        this.playerMoves[index] = this.getPlayer();
     };
 
     // gets who's turn it is (either 1 or 2)
@@ -79,7 +79,7 @@ class GameStore {
             let combo = '';
             for (let j=0; j<3; j++) {
                 // concatenates a string of moves by a player based on the combinations array.
-                combo += this.list[parseInt(this.combinations[idx][j])]
+                combo += this.playerMoves[parseInt(this.combinations[idx][j])]
             }
             // checks if the stringed value is equal to the winner string
             // and sets the winning player
@@ -189,7 +189,7 @@ class GameStore {
                 // update local state with updated database values
                 this.isWinner = data.isWinner;
                 this.numMoves = data.numMoves;
-                this.list = data.moves;
+                this.playerMoves = data.moves;
                 this.isPlayerOnesTurn = data.isPlayerOnesTurn;
                 this.playerOneWins = data.playerOneWins;
                 this.playerTwoWins = data.playerTwoWins;
@@ -233,7 +233,7 @@ class GameStore {
         firebase.database().ref('games/' + this.currentGameKey).update(
             {
                 isPlayerOnesTurn: this.isPlayerOnesTurn, 
-                moves: this.list,
+                moves: this.playerMoves,
                 numMoves: this.numMoves,
                 isWinner: this.isWinner,
                 playerOneWins: this.playerOneWins,
@@ -243,7 +243,7 @@ class GameStore {
 
     // reset store values when user enters a new game
     resetStore = () => {
-        this.list = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        this.playerMoves = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         this.isPlayerOnesTurn = null;
         this.playerOneWins = 0;
         this.playerTwoWins = 0;
@@ -258,7 +258,7 @@ class GameStore {
     // resets existing game between two players
     resetGame = () => {
         // update local state for user that requested to rest the game
-        this.list = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        this.playerMoves = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         this.numMoves = 0;
         this.isWinner = 0;
 

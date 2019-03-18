@@ -23,7 +23,7 @@ class Block extends React.Component {
                 1: require('../assets/x.png'),
                 2: require('../assets/o.png')
             };
-            return <Image style={styles.moveImg} source={imgObj[GameStore.list[this.props.index]]} resizeMode={'stretch'}/>
+            return <Image style={styles.moveImg} source={imgObj[GameStore.playerMoves[this.props.index]]} resizeMode={'stretch'}/>
         }
     };
 
@@ -33,7 +33,7 @@ class Block extends React.Component {
                 <TouchableWithoutFeedback
                     onPress={() => {
                         // check if block has already been pressed
-                        if (GameStore.list[this.props.index] === 0) {
+                        if (GameStore.playerMoves[this.props.index] === 0) {
                             if (GameStore.isPlayersTurn()) {
                                 GameStore.gameController(this.props.index);
                             }

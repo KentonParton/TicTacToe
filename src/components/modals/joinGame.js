@@ -1,6 +1,6 @@
 // Node Modules
 import React from 'react';
-import { Image, Modal, TextInput, TouchableWithoutFeedback, View, } from 'react-native';
+import { Clipboard, Image, Modal, TextInput, TouchableWithoutFeedback, View, } from 'react-native';
 import { observer } from 'mobx-react';
 import {extendObservable} from 'mobx'
 import Toast from 'react-native-simple-toast';
@@ -24,6 +24,7 @@ class JoinGameModal extends React.Component {
     }
 
     componentWillMount() {
+        // Clipboard.setString('');
         this.currentGameKey = '';
     }
 
