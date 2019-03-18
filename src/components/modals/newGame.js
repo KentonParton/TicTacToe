@@ -65,6 +65,7 @@ class NewGameModal extends React.Component {
                                 value={this.playerOne}
                                 placeholder='Player 1 First Name'
                                 underlineColorAndroid='transparent'
+                                autoCorrect={false}
                             />
                             <TextInput
                                 style={styles.textInput}
@@ -72,6 +73,7 @@ class NewGameModal extends React.Component {
                                 value={this.playerTwo}
                                 placeholder='Player 2 First Name'
                                 underlineColorAndroid='transparent'
+                                autoCorrect={false}
                             />
                             <CustomButton title={'Create Game'} height={40} style={{marginTop: 20}}
                                 onPress={() => {

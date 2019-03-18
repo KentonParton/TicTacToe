@@ -119,7 +119,7 @@ export default styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     textInput: {
-        width: '60%',
+        width: viewportWidth * .5,
         fontSize: 18,
         borderBottomWidth: 0.5,
         marginBottom: 20,

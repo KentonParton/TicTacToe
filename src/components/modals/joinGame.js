@@ -69,6 +69,7 @@ class JoinGameModal extends React.Component {
                                 value={this.currentGameKey}
                                 placeholder='Enter Game Code'
                                 underlineColorAndroid='transparent'
+                                autoCorrect={false}
                             />
                             <CustomButton title={'Join Game'} height={40} style={{marginTop: 20}}
                                 onPress={() => { 
